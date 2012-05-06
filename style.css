@@ -1,0 +1,261 @@
+/**
+ * GENERAL
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  
+}
+
+html {
+  background: url(images/background.jpg);
+  
+}
+
+
+body {
+  
+  /color: #666;
+  font: normal 14px/1.6 "Cabin";
+}
+
+p + p {
+  margin-top: 20px;
+}
+
+div.main {
+  background: #fff repeat-y right top;
+  border: 1px solid #c8cfda;
+  box-shadow: 1px 1px 2px rgba(0,0,0,.3);
+  font: normal 14px/1.6 "Cabin";
+  margin: 50px auto;
+  padding: 50px;
+  overflow: hidden;
+  width: 800px;
+}
+
+
+
+/**
+ * CLEARFIX
+ */
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.group {
+    zoom: 1;
+}
+
+/**
+ * HEADER
+ */
+  header.main {
+  text-align: center;
+  background: white;
+}
+
+header.main p {
+  background: #fff
+  color: blue;
+  font: 14px/1 cabin;
+  margin-top: 50px;
+
+/*  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+
+*/
+
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+/**
+ * PORTFOLIO
+ */
+.portfolio img {
+  background: #fff;
+  border: 1px solid #ccc;
+
+       -o-box-shadow: 1px 1px 2px rgba(0,0,0,.2);
+      -ms-box-shadow: 1px 1px 2px rgba(0,0,0,.2);
+     -moz-box-shadow: 1px 1px 2px rgba(0,0,0,.2);
+  -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.2);
+          box-shadow: 1px 1px 2px rgba(0,0,0,.2);
+
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+
+  padding: 5px;
+}
+
+.portfolio {
+  list-style: none;
+  margin: 50px auto;
+  overflow: hidden;
+  width: 916px;
+}
+
+.portfolio li {
+  float: left;
+  width: 292px;
+  text-align: center;
+}
+
+/*.portfolio li:nth-child(3n+2),*/
+
+.portfolio .middle {
+  margin: 0 20px;
+}
+
+.portfolio strong {
+  color: #6f6f6f;
+  display: block;
+}
+
+.portfolio strong:first-line {
+  color: #000;
+  font: bold 16px/1 sans-serif;
+}
+
+.portfolio span {
+  font-weight: normal;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+/**
+ * SHARED: ABOUT AND LINKS
+ */
+.about h1,
+.links h1 {
+  color: #47aec8;
+  font: bold 16px/1 sans-serif;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/**
+ * ABOUT
+ */
+.about img {
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 2px rgba(0,0,0,.3);
+  float: left;
+  margin: 0 10px 10px 0;
+  padding: 5px;
+}
+
+.about {
+  float: left;
+  width: 600px;
+}
+
+.about strong {
+  color: #000;
+}
+
+/**
+ * LINKS
+ */
+.links {
+  float: right;
+  width: 300px;
+}
+
+.links ul {
+  list-style: none;
+}
+
+/**
+ * PROFILE INFO
+ */
+.profile-info {
+  margin: 0 auto;
+  width: 916px;
+}
+
+/**
+ * SOCIAL
+ */
+.social {
+  overflow: hidden;
+}
+
+.social li {
+  float: left;
+}
+
+.social a {
+  background: url(images/social-icons.png) no-repeat;
+  display: block;
+  height: 32px;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 32px;
+}
+
+.social a:hover {
+  background-position: left -32px;
+}
+
+.social li + li a { background-position: -32px 0; }
+.social li + li a:hover { background-position: -32px -32px; }
+
+.social li + li + li a { background-position: -64px 0; }
+.social li + li + li a:hover { background-position: -64px -32px; }
+
+.social li + li + li + li a { background-position: -96px 0; }
+.social li + li + li + li a:hover { background-position: -96px -32px; }
+
+.social li + li + li + li + li a { background-position: -128px 0; }
+.social li + li + li + li + li a:hover { background-position: -128px -32px; }
+
+.social li + li + li + li + li + li a { background-position: -160px 0; }
+.social li + li + li + li + li + li a:hover { background-position: -160px -32px; }
+
+/**
+ * OTHER LINKS
+ */
+.other-links a {
+  background: url(images/star.png) no-repeat 5px -40px;
+  border-radius: 4px;
+  color: #555;
+  display: block;
+  padding: 5px 5px 5px 32px;
+  position: relative;
+  text-decoration: none;
+}
+
+.other-links a:hover {
+  background-color: #ccc;
+  background-color: rgba(0,0,0,.1);
+  background-position: 5px 8px;
+  color: #202020;
+}
+
+.other-links a:hover:after {
+  color: #848484;
+  font-weight: bold;
+  font-size: 11px;
+  content: "GO TO SITE";
+  right: 10px;
+  position: absolute;
+}
+
+
+
+
+
+
