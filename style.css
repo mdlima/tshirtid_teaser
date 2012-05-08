@@ -140,7 +140,7 @@ section.main{
 /**
  * Balao
  */
-/*.balao img {
+.balao img {
   background: #fff;
   border: 1px solid #ccc;
 
@@ -158,7 +158,7 @@ section.main{
 
   padding: 5px;
 }
-*/
+
 .balao {
   list-style: none;
   margin: 50px auto;
