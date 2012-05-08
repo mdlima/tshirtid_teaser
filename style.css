@@ -4,20 +4,20 @@
 
 @font-face {
 font-family: 'CabinRegular';
-src: url('images/Cabin-Regular-TTF.ttf'); /* Para o IE 9 */
-src: url('images/Cabin-Regular-TTF.ttf?#iefix') format('embedded-opentype'), /*IE 8 e inferior */
-url('images/Cabin-Regular-TTF.woff') format('woff'), /* navegadores modernos */
-url('images/Cabin-Regular-TTF.ttf') format ('truetype'), /* Safari, Android */
-url('images/Cabin-Regular-TTF.svg#CabinRegular') format('svg'); /* dispositivos móveis */
+src: url('img/Cabin-Regular-TTF.ttf'); /* Para o IE 9 */
+src: url('img/Cabin-Regular-TTF.ttf?#iefix') format('embedded-opentype'), /*IE 8 e inferior */
+url('img/Cabin-Regular-TTF.woff') format('woff'), /* navegadores modernos */
+url('img/Cabin-Regular-TTF.ttf') format ('truetype'), /* Safari, Android */
+url('img/Cabin-Regular-TTF.svg#CabinRegular') format('svg'); /* dispositivos móveis */
 }
 
 @font-face {
 font-family: 'AdelleRegular';
-src: url('images/AdelleBasic_Bold.otf'); /* Para o IE 9 */
-src: url('images/AdelleBasic_Bold.otf?#iefix') format('embedded-opentype'), /*IE 8 e inferior */
-url('images/AdelleBasic_Bold.woff') format('woff'), /* navegadores modernos */
-url('images/AdelleBasic_Bold.otf') format ('truetype'), /* Safari, Android */
-url('images/AdelleBasic_Bold.otf.svg#CabinRegular') format('svg'); /* dispositivos móveis */
+src: url('img/AdelleBasic_Bold.otf'); /* Para o IE 9 */
+src: url('img/AdelleBasic_Bold.otf?#iefix') format('embedded-opentype'), /*IE 8 e inferior */
+url('img/AdelleBasic_Bold.woff') format('woff'), /* navegadores modernos */
+url('img/AdelleBasic_Bold.otf') format ('truetype'), /* Safari, Android */
+url('img/AdelleBasic_Bold.otf.svg#CabinRegular') format('svg'); /* dispositivos móveis */
 }
 
 /**
@@ -32,7 +32,7 @@ url('images/AdelleBasic_Bold.otf.svg#CabinRegular') format('svg'); /* dispositiv
 }
 
 html {
-  background: url(images/background.jpg);
+  background: url(img/background.jpg);
   
 }
 
@@ -257,7 +257,7 @@ section.main{
 }
 
 .social a {
-  background: url(images/social-icons.png) no-repeat;
+  background: url(img/social-icons.png) no-repeat;
   display: block;
   height: 32px;
   overflow: hidden;
@@ -288,7 +288,7 @@ section.main{
  * OTHER LINKS
  */
 .other-links a {
-  background: url(images/star.png) no-repeat 5px -40px;
+  background: url(img/star.png) no-repeat 5px -40px;
   border-radius: 4px;
   color: #555;
   display: block;
