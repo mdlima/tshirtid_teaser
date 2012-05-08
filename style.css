@@ -1,6 +1,29 @@
 /**
+ * FONTE
+ */
+
+@font-face {
+font-family: 'CabinRegular';
+src: url('images/Cabin-Regular-TTF.ttf'); /* Para o IE 9 */
+src: url('images/Cabin-Regular-TTF.ttf?#iefix') format('embedded-opentype'), /*IE 8 e inferior */
+url('images/Cabin-Regular-TTF.woff') format('woff'), /* navegadores modernos */
+url('images/Cabin-Regular-TTF.ttf') format ('truetype'), /* Safari, Android */
+url('images/Cabin-Regular-TTF.svg#CabinRegular') format('svg'); /* dispositivos móveis */
+}
+
+@font-face {
+font-family: 'AdelleRegular';
+src: url('images/AdelleBasic_Bold.otf'); /* Para o IE 9 */
+src: url('images/AdelleBasic_Bold.otf?#iefix') format('embedded-opentype'), /*IE 8 e inferior */
+url('images/AdelleBasic_Bold.woff') format('woff'), /* navegadores modernos */
+url('images/AdelleBasic_Bold.otf') format ('truetype'), /* Safari, Android */
+url('images/AdelleBasic_Bold.otf.svg#CabinRegular') format('svg'); /* dispositivos móveis */
+}
+
+/**
  * GENERAL
  */
+
 
 * {
   margin: 0;
@@ -16,8 +39,8 @@ html {
 
 body {
   
-  /color: #666;
-  font: normal 14px/1.6 "Cabin";
+  color: gray;
+  font: normal 14px/1.6 "CabinRegular";
 }
 
 p + p {
@@ -26,15 +49,54 @@ p + p {
 
 div.main {
   background: #fff repeat-y right top;
-  border: 1px solid #c8cfda;
+
   box-shadow: 1px 1px 2px rgba(0,0,0,.3);
-  font: normal 14px/1.6 "Cabin";
+  font: normal 14px/1.6 "CabinRegular";
   margin: 50px auto;
-  padding: 50px;
+  padding: 10px;
   overflow: hidden;
   width: 800px;
 }
 
+section.main{
+	/*font: normal 14px/1.6 "CabinRegular";*/
+	
+	
+}
+
+ header {
+        background: white;
+        padding: 20px;
+        position: relative;
+        border-bottom: #c8cfda 1px solid ;
+        
+		
+        
+      }
+
+ nav {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+		font: normal 50px #e25e39 "AdelleRegular";
+		
+        
+      }
+
+      li {
+        list-style: none;
+        float: left;
+        padding: 0 20px;
+		border-left: #c8cfda 1px solid ;
+		
+      }
+
+      ul {
+        
+        overflow: hidden;
+		
+      }
+ 
 
 
 /**
@@ -60,28 +122,25 @@ div.main {
   header.main {
   text-align: center;
   background: white;
+  font: 14px/1 'CabinRegular';
+  margin-left: 80px;
+  margin-right: 80px;
 }
 
-header.main p {
-  background: #fff
-  color: blue;
-  font: 14px/1 cabin;
-  margin-top: 50px;
+ header.main p {
+  background: #fff;
+  color: gray;
+  font: 17px/1 "CabinRegular";
+  line-height: 175%;
 
-/*  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 24px;
+}
 
-*/
-
-  letter-spacing: -1px;
-  text-transform: uppercase;
 }
 
 /**
- * PORTFOLIO
+ * Balao
  */
-.portfolio img {
+/*.balao img {
   background: #fff;
   border: 1px solid #ccc;
 
@@ -99,37 +158,37 @@ header.main p {
 
   padding: 5px;
 }
-
-.portfolio {
+*/
+.balao {
   list-style: none;
   margin: 50px auto;
   overflow: hidden;
   width: 916px;
 }
 
-.portfolio li {
+.balao li {
   float: left;
   width: 292px;
   text-align: center;
 }
 
-/*.portfolio li:nth-child(3n+2),*/
+/*.balao li:nth-child(3n+2),*/
 
-.portfolio .middle {
+.balao .middle {
   margin: 0 20px;
 }
 
-.portfolio strong {
+.balao strong {
   color: #6f6f6f;
   display: block;
 }
 
-.portfolio strong:first-line {
+.balao strong:first-line {
   color: #000;
   font: bold 16px/1 sans-serif;
 }
 
-.portfolio span {
+.balao span {
   font-weight: normal;
   font-size: 13px;
   text-transform: uppercase;
