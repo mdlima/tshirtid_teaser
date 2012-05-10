@@ -11,6 +11,7 @@
 	url('img/AdelleBasic_Bold.otf.svg#AdelleRegular') format('svg'); /* dispositivos móveis */
 }
 
+
 /**
  * GENERAL
  */
@@ -25,7 +26,7 @@ html {
 }
 
 body {
-/*	background: url(img/background.jpg);*/
+	background: url(img/background.jpg);
 /*	background-color: #996633;*/
 /*	color: gray;*/
 /*	font: normal 14px/1.6 "Cabin";*/
@@ -40,10 +41,7 @@ div.main {
 	border-radius: 4px;
 	box-shadow: 5px 5px 5px rgba(0,0,0,.3);
 /*	font: normal 14px/1.6 "Cabin";*/
-	margin: 30px auto;
-	padding: 0px;
-	overflow: hidden;
-	width: 80%;
+/*	width: 80%;*/
 }
 
 section.main{
@@ -55,34 +53,31 @@ section.main{
 				padding: 20px;
 				position: relative;
 				border-bottom: #c8cfda 1px solid ;
-				
-		
-				
 			}
 
- nav {
-				position: absolute;
-				top: 20px;
-				right: 20px;
-				font: normal 50px #e25e39 "AdelleRegular";
-		
-				
-			}
+ /*nav {
+ 				position: absolute;
+ 				top: 20px;
+ 				right: 20px;
+ 				font: normal 50px #e25e39 "AdelleRegular";
+ 		
+ 				
+ 			}
 
-			li {
-				list-style: none;
-				float: left;
-				padding: 0 20px;
-				border-left: #c8cfda 1px solid ;
-		
-			}
+ 			li {
+ 				list-style: none;
+ 				float: left;
+ 				padding: 0 20px;
+ 				border-left: #c8cfda 1px solid ;
+ 		
+ 			}
 
-			ul {
-				
-				overflow: hidden;
-		
-			}
- 
+ 			ul {
+ 				
+ 				overflow: hidden;
+ 		
+ 			}
+  */
 
 
 /**
