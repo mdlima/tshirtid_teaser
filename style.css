@@ -26,7 +26,7 @@ html {
 }
 
 body {
-	background: url(img/background.jpg);
+/*	background: url(img/background.jpg);*/
 /*	background-color: #996633;*/
 /*	color: gray;*/
 /*	font: normal 14px/1.6 "Cabin";*/
@@ -37,9 +37,9 @@ p + p {
 }
 
 div.main {
-	background: #fff repeat-y right top;
+/*	background: #fff repeat-y right top;
 	border-radius: 4px;
-	box-shadow: 5px 5px 5px rgba(0,0,0,.3);
+	box-shadow: 5px 5px 5px rgba(0,0,0,.3);*/
 /*	font: normal 14px/1.6 "Cabin";*/
 /*	width: 80%;*/
 }

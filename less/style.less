@@ -3,8 +3,11 @@
 @import "bootstrap/bootstrap.less";
 
 body {
-  padding-top: 60px;
+  padding-top: 40px;
   padding-bottom: 40px;
+	background: url(../img/background.jpg); 
+	// TODO remove background for smartphones media type
+	// TODO remove padding left/right for smartphone media types
 }
 
 @import "bootstrap/responsive.less";
@@ -14,27 +17,66 @@ body {
    Author: Marcio Lima  mdlima.github@mailnull.com
    ========================================================================== */
 
+@logoSize: 556px;
+@contentPaddingSmall: 4px;
+@contentPaddingLarge: 10px;
+
+
+div.main {
+	background: #fff repeat-y right top;
+	padding: @contentPaddingSmall; // For larger screens we have a body padding already, so we don't need a big padding
+	overflow: hidden;
+	min-width: @logoSize + 2*@contentPaddingSmall;
+	.border-radius(5px);
+	.box-shadow(5px 5px 5px rgba(0,0,0,.3));
+}
+
 .main-logo {
-	width: 556px;
+	width: @logoSize;
 	.center-block();
 }
 
-.main-inner {
-  padding-left:  20px;
-  padding-right: 20px;
-  #gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);
-  .border-radius(4px);
-  @shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
-  .box-shadow(@shadow);
-}
-
-.logo-text
-{
+.center-text {
 	text-align: center;
 }
 
+.white-text {
+	color: @white;
+}
+
+.sign-up-box {
+	background-color: #066;
+	color: @white;
+}
+
+.buy-now-box {
+	background-color: #6e201b;
+	color: @white;
+}
+
+// .main-inner {
+//   padding-left:  20px;
+//   padding-right: 20px;
+//   #gradient > .vertical(@navbarBackgroundHighlight, @navbarBackground);
+//   .border-radius(4px);
+//   @shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
+//   .box-shadow(@shadow);
+// }
 
 
+@media (max-width: 767px) {
+	body {
+		background: none;
+		padding: 0px;
+	}
+	
+	div.main {
+		padding: @contentPaddingSmall @contentPaddingLarge; // For smaller screens there's no body padding
+		min-width: @logoSize + 2*@contentPaddingLarge;
+		.border-radius(0px);
+		.box-shadow(0px 0px);
+	}
+}
 
 
 
