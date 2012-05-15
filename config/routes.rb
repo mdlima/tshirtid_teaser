@@ -1,4 +1,6 @@
 TshirtidTeaser::Application.routes.draw do
+  resources :email_subscriptions
+
   get "teaser_pages/home"
 
   # The priority is based upon order of creation:

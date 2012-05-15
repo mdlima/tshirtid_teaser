@@ -1,0 +1,45 @@
+<%= form_for(@email_subscription) do |f| %>
+  <% if @email_subscription.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@email_subscription.errors.count, "error") %> prohibited this email_subscription from being saved:</h2>
+
+      <ul>
+      <% @email_subscription.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :opt_in %><br />
+    <%= f.check_box :opt_in %>
+  </div>
+  <div class="field">
+    <%= f.label :opt_in_campaign %><br />
+    <%= f.text_field :opt_in_campaign %>
+  </div>
+  <div class="field">
+    <%= f.label :ip %><br />
+    <%= f.text_field :ip %>
+  </div>
+  <div class="field">
+    <%= f.label :last_opt_in %><br />
+    <%= f.datetime_select :last_opt_in %>
+  </div>
+  <div class="field">
+    <%= f.label :last_opt_out %><br />
+    <%= f.datetime_select :last_opt_out %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

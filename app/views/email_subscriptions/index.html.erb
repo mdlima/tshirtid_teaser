@@ -1,0 +1,35 @@
+<h1>Listing email_subscriptions</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Opt in</th>
+    <th>Opt in campaign</th>
+    <th>Ip</th>
+    <th>Last opt in</th>
+    <th>Last opt out</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @email_subscriptions.each do |email_subscription| %>
+  <tr>
+    <td><%= email_subscription.name %></td>
+    <td><%= email_subscription.email %></td>
+    <td><%= email_subscription.opt_in %></td>
+    <td><%= email_subscription.opt_in_campaign %></td>
+    <td><%= email_subscription.ip %></td>
+    <td><%= email_subscription.last_opt_in %></td>
+    <td><%= email_subscription.last_opt_out %></td>
+    <td><%= link_to 'Show', email_subscription %></td>
+    <td><%= link_to 'Edit', edit_email_subscription_path(email_subscription) %></td>
+    <td><%= link_to 'Destroy', email_subscription, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Email subscription', new_email_subscription_path %>
