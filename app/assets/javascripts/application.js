@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-// require_tree .
+//= require_tree .
 // require js/libs/less-1.3.0.min
-//= require js/libs/modernizr-2.5.3-respond-1.1.0.min
-//= require js/plugins
-//= require js/script
+// require js/libs/modernizr-2.5.3-respond-1.1.0.min
+// require js/plugins
+// require js/script
