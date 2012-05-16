@@ -1,0 +1,9 @@
+
+- flash.each do |key, value|
+	- message = prepare_flash_message(key, value)
+	.row
+		.span6.offset3
+			%div.alert.alert-block.fade.in{ :class => message[:class] }
+				%a.close{"data-dismiss" => "alert"} ×
+				%strong= message[:heading] if message[:heading]
+				= message[:message]
