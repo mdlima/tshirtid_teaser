@@ -51,10 +51,10 @@ class EmailSubscriptionsController < ApplicationController
 
     respond_to do |format|
       if @email_subscription.save
-        format.html { redirect_to @email_subscription, :notice => 'Email subscription was successfully created.' }
+        format.html { render :thanks, :notice => 'Email cadastrado com sucesso.' }
         format.json { render :json => @email_subscription, :status => :created, :location => @email_subscription }
       else
-        format.html { redirect_to root_path }
+        format.html { redirect_to root_path, :notice => { :heading => 'Ooops!', :message => 'Email já cadastrado.'} }
         format.json { render :json => @email_subscription.errors, :status => :unprocessable_entity }
       end
     end
