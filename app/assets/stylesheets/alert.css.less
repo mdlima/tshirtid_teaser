@@ -1,0 +1,41 @@
+// FIXED ALERTS
+// ------------
+
+// Shared (top/bottom) styles
+.alert-fixed-top,
+.alert-fixed-bottom {
+  position: fixed;
+  // right: 0;
+  left: 15%;
+	width: 70%;
+  z-index: 2000;
+  margin-bottom: 0; // remove 18px margin for static navbar
+}
+.alert-fixed-top .alert,
+.alert-fixed-bottom .alert {
+	margin-top: 0;
+  margin-bottom: 0;
+}
+
+// Fixed to top
+.alert-fixed-top {
+  top: 0;
+}
+
+// Fixed to bottom
+.alert-fixed-bottom {
+  bottom: 0;
+}
+
+// Responsive for small media
+@media (max-width: 767px) {
+
+	.alert-fixed-top,
+	.alert-fixed-bottom {
+	  right: 0;
+	  left: 0;
+		width: 100%;
+	}
+}
+
+

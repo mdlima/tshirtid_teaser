@@ -2,7 +2,7 @@ module ApplicationHelper
 
   
   def prepare_flash_message(flash_type, flash_value)
-    prepared_message = { :class => "alert-info", :heading => "", :message => ""}
+    prepared_message = { :class => "alert-warning", :heading => "", :message => ""}
     
     case flash_type
       when :alert
