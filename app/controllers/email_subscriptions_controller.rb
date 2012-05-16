@@ -41,13 +41,20 @@ class EmailSubscriptionsController < ApplicationController
   # POST /email_subscriptions.json
   def create
     @email_subscription = EmailSubscription.new(params[:email_subscription])
+    @email_subscription.ip = request.remote_ip
+    if  @email_subscription.opt_in
+      @email_subscription.last_opt_in = Time.now
+    else
+      @email_subscription.last_opt_out = Time.now
+    end
+    
 
     respond_to do |format|
       if @email_subscription.save
         format.html { redirect_to @email_subscription, :notice => 'Email subscription was successfully created.' }
         format.json { render :json => @email_subscription, :status => :created, :location => @email_subscription }
       else
-        format.html { render :action => "new" }
+        format.html { redirect_to root_path }
         format.json { render :json => @email_subscription.errors, :status => :unprocessable_entity }
       end
     end

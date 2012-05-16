@@ -54,34 +54,41 @@
 			<div class="row-fluid">
 				
 				<div class="span6">
-					<form class="well form-inline sign-up-box">
+
+					<%= form_for(@email_subscription, :html => { :class => "well form-inline sign-up-box"}) do |f| %>
 						<p>Me avise, quero ser o primeiro a saber das novidades.</p>
 
 						<div class="control-group">
-					      <!-- <label class="control-label" for="input01">Text input</label> -->
-					      <div class="controls">
-								<input type="text" class="input-medium focused" placeholder="E-mail">
-								<button type="submit" class="btn btn-info">OK</button>
-					        	<p class="help-block"><small>* Você aceita receber nossos e-mails.<br/>Mandaremos novidades, mas nada de SPAM. Fique tranquilo, não vendemos e não compartilhamos e-mails.</small></p>
-					      </div>
-					    </div>
-					</form>
+				      <div class="controls">
+								<!-- <input type="text" class="input-medium focused" placeholder="E-mail"> -->
+								<%= f.text_field :email, :class => "input-medium focused", :placeholder => "Email"%>
+								<!-- <button type="submit" class="btn btn-info">OK</button> -->
+								<%= f.submit "OK", :class => "btn btn-info" %>
+				      	<p class="help-block"><small>* Você aceita receber nossos e-mails.<br/>Mandaremos novidades, mas nada de SPAM. Fique tranquilo, não vendemos e não compartilhamos e-mails.</small></p>
+				      </div>
+				    </div>
+					<% end %>
+
 				</div>
 				
 				<div class="span6">
-					<form class="well form-inline buy-now-box">
+					
+					<%= form_for(@email_subscription, :html => { :class => "well form-inline buy-now-box"}) do |f| %>
 						<p>Não aguento esperar, quero fazer a minha agora mesmo!</p>
-
+						
 						<div class="control-group">
-					      <!-- <label class="control-label" for="input01">Text input</label> -->
-					      <div class="controls">
-								<input type="text" class="input-medium" placeholder="Email">
-								<button type="submit" class="btn btn-danger">OK</button>
-					        	<p class="help-block"><small>* Você aceita receber e-mails.<br/>Entraremos em contato com você para fazer a sua camiseta antes do lançamento oficial. Fique atento à sua caixa de e-mails.</small></p>
-					      </div>
-				    	</div>
-					</form>
+				      <div class="controls">
+								<!-- <input type="text" class="input-medium focused" placeholder="E-mail"> -->
+								<%= f.text_field :email, :class => "input-medium focused", :placeholder => "Email"%>
+								<!-- <button type="submit" class="btn btn-info">OK</button> -->
+								<%= f.submit "OK", :class => "btn btn-danger" %>
+			        	<p class="help-block"><small>* Você aceita receber e-mails.<br/>Entraremos em contato com você para fazer a sua camiseta antes do lançamento oficial. Fique atento à sua caixa de e-mails.</small></p>
+				      </div>
+				    </div>
+					<% end %>
+					
 				</div>
+				
 			</div>
 		</div>
 	</div>
