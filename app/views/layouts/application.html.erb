@@ -25,17 +25,27 @@
 	<!--[if lt IE 7]><p class=chromeframe>Seu navegador é muito antigo. <a href="http://browsehappy.com/">Atualize a versão do seu navegador</a> ou <a href="http://www.google.com/chromeframe/?redirect=true">instale o Google Chrome Frame</a> para navegar neste site.</p><![endif]-->
 
 	<div class="container main">
-		
-	<%= render 'layouts/header' %>
-		
-	<%= yield %>
 	
-	<%= render 'layouts/footer' %>
+		<section id="header">
+			<%= render 'layouts/header' %>
+		</section>
 
+		<section id="flash">
+			<%= render :partial => "shared/flash_messages", :locals => {:flash => flash} %>
+		</section>
+			
+		<section id="content">
+			<%= yield %>
+			<hr />
+		</section>
+	
+		<section id="footer">
+			<%= render 'layouts/footer' %>
+		</section>
 	</div>
 	<!-- /container -->
 	
-<%= render 'layouts/ga' %>
+<%= render 'shared/ga' %>
 
 </body>
 </html>
