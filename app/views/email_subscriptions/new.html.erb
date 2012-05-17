@@ -59,9 +59,8 @@
 
 					<div class="control-group">
 			      <div class="controls">
-							<!-- <input type="text" class="input-medium focused" placeholder="E-mail"> -->
 							<%= f.text_field :email, :class => "input-medium focused", :placeholder => "Email"%>
-							<!-- <button type="submit" class="btn btn-info">OK</button> -->
+							<%= f.hidden_field :opt_in_campaign, :value => "teaser-signup" %>
 							<%= f.submit "OK", :class => "btn btn-info" %>
 			      	<p class="help-block"><small>* Voc&ecirc; aceita receber nossos e-mails.<br/>Mandaremos novidades, mas nada de SPAM. Fique tranquilo, n&atilde;o vendemos e n&atilde;o compartilhamos e-mails.</small></p>
 			      </div>
@@ -77,9 +76,8 @@
 					
 					<div class="control-group">
 			      <div class="controls">
-							<!-- <input type="text" class="input-medium focused" placeholder="E-mail"> -->
 							<%= f.text_field :email, :class => "input-medium focused", :placeholder => "Email"%>
-							<!-- <button type="submit" class="btn btn-info">OK</button> -->
+							<%= f.hidden_field :opt_in_campaign, :value => "teaser-buynow" %>
 							<%= f.submit "OK", :class => "btn btn-danger" %>
 		        	<p class="help-block"><small>* Voc&ecirc; aceita receber e-mails.<br/>Entraremos em contato com voc&ecirc; para fazer a sua camiseta antes do lan&ccedil;amento oficial. Fique atento &agrave; sua caixa de e-mails.</small></p>
 			      </div>
