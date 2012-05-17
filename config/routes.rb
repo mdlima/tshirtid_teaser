@@ -1,6 +1,8 @@
 TshirtidTeaser::Application.routes.draw do
   
-  resources :email_subscriptions
+  # resources :email_subscriptions
+  post 'email_subscriptions' => 'email_subscriptions#create'
+  get 'email_subscriptions' => 'email_subscriptions#index'
 
   # get "teaser_pages/home"
 

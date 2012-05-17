@@ -1,5 +1,9 @@
 class EmailSubscriptionsController < ApplicationController
   
+  def index
+    redirect_to root_path
+  end
+  
   # GET /email_subscriptions/new
   # GET /email_subscriptions/new.json
   def new
@@ -9,11 +13,6 @@ class EmailSubscriptionsController < ApplicationController
       format.html # new.html.erb
       format.json { render :json => @email_subscription }
     end
-  end
-
-  # GET /email_subscriptions/1/edit
-  def edit
-    @email_subscription = EmailSubscription.find(params[:id])
   end
 
   # POST /email_subscriptions
