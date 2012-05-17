@@ -14,14 +14,16 @@ ActiveRecord::Schema.define(:version => 20120515214403) do
 
   create_table "email_subscriptions", :force => true do |t|
     t.string   "name"
-    t.string   "email"
-    t.boolean  "opt_in"
+    t.string   "email",                             :null => false
+    t.boolean  "opt_in",          :default => true
     t.string   "opt_in_campaign"
     t.string   "ip"
     t.datetime "last_opt_in"
     t.datetime "last_opt_out"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
+
+  add_index "email_subscriptions", ["email"], :name => "email_subscriptions_email_index", :unique => true
 
 end

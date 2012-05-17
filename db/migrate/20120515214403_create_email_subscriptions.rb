@@ -2,7 +2,7 @@ class CreateEmailSubscriptions < ActiveRecord::Migration
   def change
     create_table :email_subscriptions do |t|
       t.string :name
-      t.string :email, :null => false, :index => true
+      t.string :email, :null => false
       t.boolean :opt_in, :default => true
       t.string :opt_in_campaign
       t.string :ip
@@ -11,5 +11,7 @@ class CreateEmailSubscriptions < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index(:email_subscriptions, :email, { :name => "email_subscriptions_email_index", :unique => true })
   end
 end
