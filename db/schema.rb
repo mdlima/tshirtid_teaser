@@ -24,6 +24,4 @@ ActiveRecord::Schema.define(:version => 20120515214403) do
     t.datetime "updated_at",                        :null => false
   end
 
-  add_index "email_subscriptions", ["email"], :name => "email_subscriptions_email_index", :unique => true
-
 end
