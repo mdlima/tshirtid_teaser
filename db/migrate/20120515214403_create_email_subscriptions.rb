@@ -12,6 +12,6 @@ class CreateEmailSubscriptions < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index(:email_subscriptions, :email, { :name => "email_subscriptions_email_index", :unique => true })
+    # add_index(:email_subscriptions, :email, { :name => "email_subscriptions_email_index", :unique => true })
   end
 end
