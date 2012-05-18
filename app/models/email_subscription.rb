@@ -19,8 +19,9 @@ class EmailSubscription < ActiveRecord::Base
   validates_presence_of :email, :message => 'Por favor, preencha o seu email.'
   # validates_uniqueness_of :email, :message => 'Seu email já está cadastrado, obrigado.'
   validates_format_of :email,
-    :with => /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/i,
-    :message => 'Este email parece ser inválido.'
+    :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i,
+    :message => 'Este email parece ser inválido.',
+    :unless => Proc.new { |email_subscription| email_subscription.email.blank? }
   
   attr_accessible :email, :ip, :last_opt_in, :last_opt_out, :name, :opt_in, :opt_in_campaign
   

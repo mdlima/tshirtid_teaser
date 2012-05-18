@@ -4,4 +4,5 @@
 		%div.alert.alert-block.fade.in{ :class => message[:class] }
 			%button.close{"data-dismiss" => "alert"} ×
 			%strong= message[:heading] if message[:heading]
-			= message[:message]
+			- message[:message].each do |m|
+				= m + " "

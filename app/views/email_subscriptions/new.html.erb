@@ -59,7 +59,7 @@
 
 					<div class="control-group">
 			      <div class="controls">
-							<%= f.text_field :email, :class => "input-medium focused", :placeholder => "Email"%>
+							<%= f.email_field :email, :class => "input-medium focused", :placeholder => "Email", :autocapitalize => "off", :autocorrect => "off" %>
 							<%= f.hidden_field :opt_in_campaign, :value => "teaser-signup" %>
 							<%= f.submit "OK", :class => "btn btn-info" %>
 			      	<p class="help-block"><small>* Voc&ecirc; aceita receber nossos e-mails.<br/>Mandaremos novidades, mas nada de SPAM. Fique tranquilo, n&atilde;o vendemos e n&atilde;o compartilhamos e-mails.</small></p>
