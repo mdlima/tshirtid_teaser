@@ -4,6 +4,10 @@ class EmailSubscriptionsController < ApplicationController
     redirect_to root_path
   end
   
+  def thanks
+    
+  end
+  
   # GET /email_subscriptions/new
   # GET /email_subscriptions/new.json
   def new
@@ -26,8 +30,8 @@ class EmailSubscriptionsController < ApplicationController
     respond_to do |format|
       if @email_subscription.save
         format.html { 
-          flash.now[:success] = { :heading => "Oh yeah!", :message => 'Email cadastrado com sucesso.'}
-          render :thanks 
+          flash[:success] = { :heading => "Oh yeah!", :message => 'Email cadastrado com sucesso.'}
+          redirect_to thanks_path 
           }
         format.json { render :json => @email_subscription, :status => :created, :location => @email_subscription }
       else
