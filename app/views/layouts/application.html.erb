@@ -22,6 +22,7 @@
 	  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <%= csrf_meta_tags %>
+	<%= render 'shared/ga' %>
 </head>
 <body>
 
@@ -49,7 +50,6 @@
 	<!-- /container -->
 
 <%= javascript_include_tag "application" %>	
-<%= render 'shared/ga' %>
 
 </body>
 </html>
