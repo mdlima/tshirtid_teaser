@@ -31,7 +31,7 @@ group :development do
 	gem "capistrano"
 end
 
-group :development, :test do
+group :development, :test, :production do
   gem 'sqlite3'
 end
 
