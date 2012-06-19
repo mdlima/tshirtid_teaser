@@ -8,7 +8,7 @@ default_run_options[:pty] = true
 
 set :user, "boscolotshirt"
 set :domain, "boscolotshirt.com.br"
-set :application, "sample_app"
+set :application, "dev_tshirt_id"
 # set :db_name, "boscolotshirt2"
 
 set :local_repository,  "ssh://#{user}@#{domain}/~/repo/#{application}.git"

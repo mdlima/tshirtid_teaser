@@ -28,6 +28,7 @@ group :development do
   # gem 'rspec-rails'
   gem 'annotate', '~> 2.4.1.beta'
   gem 'taps'
+	gem "capistrano"
 end
 
 group :development, :test do
@@ -36,6 +37,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'mysql2'
   gem 'thin'
 end
 
