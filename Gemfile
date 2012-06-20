@@ -31,14 +31,14 @@ group :development do
 	gem "capistrano"
 end
 
-group :development, :test, :production do
+group :development, :test do
   gem 'sqlite3'
 end
 
 group :production do
   gem 'pg'
   gem 'mysql2'
-  gem 'thin'
+  # gem 'thin'
 end
 
 
