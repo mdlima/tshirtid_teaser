@@ -1,6 +1,6 @@
 require "bundler/capistrano"
 
-# load 'deploy/assets'
+load 'deploy/assets'
 
 # ==============================================================
 # SET's
@@ -27,7 +27,7 @@ set :git_shallow_clone, 1
 set :remote, user
 set :scm_verbose, true
 set :copy_cache, true 
-set :keep_releases, 5 # mantem 5 versoes
+set :keep_releases, 5 # mantem ultimas versoes
 
 set :build_nokogiri, "--with-xslt-dir=/home/storage/c/9a/91/boscolotshirt/local --with-xml2-include=/home/storage/c/9a/91/boscolotshirt/local/include/libxml2 --with-xml2-lib=/home/storage/c/9a/91/boscolotshirt/local/lib"
 
@@ -45,7 +45,7 @@ server domain, :app, :web, :db, :primary => true
 after "deploy:update_code", :roles => [:web, :db, :app] do
   deploy.copy_database_config
   run "chmod 755 #{release_path}/public -R"
-  deploy.deploy_assets
+  # deploy.deploy_assets
 end
 
 
@@ -61,16 +61,29 @@ namespace :deploy do
   task :copy_database_config do
     # production_db_config = "/path_to_config/#{application}.yml"
     run "cp /home/#{user}/rails_projects/#{application}/database.yml #{current_release}/config/database.yml"
-    puts "replaced database.yml with live copy"
+    puts "Replaced database.yml with live copy"
   end
   
   desc "uploads precompiled  assets to production"
   task :deploy_assets, :except => { :no_release => true } do
-     run_locally("rake assets:clean && rake assets:precompile")
-     # puts "uploading to #{release_path}/public/assets"
-     top.upload("public/assets", "#{release_path}/public/assets", :via => :scp, :recursive => true)
-     # top.upload("public/assets", "/home/boscolotshirt/rails_projects/dev_tshirt_id/releases/20120620212654/public/assets", :via => :scp, :recursive => true)
-     run_locally("rake assets:clean")
+    puts "Compiling assets locally"
+    run_locally("rake assets:clean && rake assets:precompile")
+    puts "Uploading assets to #{latest_release}/public/assets"
+    top.upload("public/assets", "#{latest_release}/public/", :via => :scp, :recursive => true)
+    # top.upload("public/assets", "/home/boscolotshirt/rails_projects/dev_tshirt_id/releases/20120620212654/public/assets", :via => :scp, :recursive => true)
+    run_locally("rake assets:clean")
+  end
+
+  namespace :assets do
+    task :precompile, :roles => :web, :except => { :no_release => true } do
+      from = source.next_revision(current_revision)
+      if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ lib/assets/ | wc -l").to_i > 0
+        # run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+        deploy.deploy_assets
+      else
+        logger.info "Skipping asset pre-compilation because there were no asset changes"
+      end
+    end
   end
 end
 
