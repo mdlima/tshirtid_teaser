@@ -47,7 +47,6 @@ before "deploy:update_code", "deploy:check_changes"
 after "deploy:update_code", :roles => [:web, :db, :app] do
   deploy.copy_database_config
   run "chmod 755 #{release_path}/public -R"
-  deploy.deploy_assets
 end
 
 
@@ -61,7 +60,7 @@ namespace :deploy do
   
   task :check_changes do
 
-    if previous_release && (current_revision == real_revision)
+    if current_release && (current_revision == real_revision)
       Capistrano::CLI.ui.say("You don't have any changes to deploy")
 
       agree = Capistrano::CLI.ui.agree("Continue (Yes, [No]) ") do |q|
@@ -81,7 +80,7 @@ namespace :deploy do
   desc "copy database.yml into project"
   task :copy_database_config do
     # production_db_config = "/path_to_config/#{application}.yml"
-    run "cp /home/#{user}/rails_projects/#{application}/database.yml #{current_release}/config/database.yml"
+    run "cp /home/#{user}/rails_projects/#{application}/database.yml #{latest_release}/config/database.yml"
     puts "Replaced database.yml with live copy"
   end
   
@@ -91,20 +90,26 @@ namespace :deploy do
     run_locally("rake assets:clean && rake assets:precompile")
     puts "Uploading assets to #{latest_release}/public/assets"
     top.upload("public/assets", "#{latest_release}/public/", :via => :scp, :recursive => true)
-    # top.upload("public/assets", "/home/boscolotshirt/rails_projects/dev_tshirt_id/releases/20120620212654/public/assets", :via => :scp, :recursive => true)
     run_locally("rake assets:clean")
   end
 
   namespace :assets do
     task :precompile, :roles => :web, :except => { :no_release => true } do
-
-      from = source.next_revision(current_revision) || ""
-      puts "cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ lib/assets/ | wc -l"
-      if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ lib/assets/ | wc -l").to_i > 0
-        # run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+      
+      # Always deploy assets on first release
+      unless current_release
         deploy.deploy_assets
       else
-        logger.info "Skipping asset pre-compilation because there were no asset changes"
+
+        from = source.next_revision(current_revision)
+        # puts "cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ lib/assets/ | wc -l"
+        if capture("cd #{latest_release} && #{source.local.log(from)} vendor/assets/ app/assets/ lib/assets/ | wc -l").to_i > 0
+          # run %Q{cd #{latest_release} && #{rake} RAILS_ENV=#{rails_env} #{asset_env} assets:precompile}
+          deploy.deploy_assets
+        else
+          logger.info "Skipping asset pre-compilation because there were no asset changes"
+        end
+        
       end
 
     end
