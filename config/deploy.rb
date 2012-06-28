@@ -9,19 +9,15 @@ load 'deploy/assets'
 default_run_options[:pty] = true 
 
 set :user, "boscolotshirt"
-set :domain, "ftp.boscolotshirt.com.br"
-set :application, "dev_tshirt_id"
+set :domain, "boscolotshirt.com.br"
+set :application, "tshirt_id"
 # set :db_name, "boscolotshirt2"
 
-set :local_repository,  "ssh://#{user}@#{domain}/~/repo/#{application}.git"
-set :repository,  "file:///home/#{user}/repo/#{application}.git"
 set :scm, "git"
 # set :scm_passphrase, "senha"
 # set :scm_user, "usuario"
  
 set :use_sudo, false  #railsplayground nao aceita sudo
-set :branch, "master" #branch que sera copiado
-set :deploy_to, "/home/#{user}/rails_projects/#{application}"  #pasta para onde serao enviados os arquivos
 set :deploy_via, :remote_cache
 # set :git_shallow_clone, 1
 set :remote, application
@@ -29,13 +25,35 @@ set :scm_verbose, true
 set :copy_cache, true 
 set :keep_releases, 5 # mantem ultimas versoes
 
-set :build_nokogiri, "--with-xslt-dir=/home/storage/c/9a/91/boscolotshirt/local --with-xml2-include=/home/storage/c/9a/91/boscolotshirt/local/include/libxml2 --with-xml2-lib=/home/storage/c/9a/91/boscolotshirt/local/lib"
+task :set_folders do
+  
+  set :local_repository,  "ssh://#{user}@#{domain}/~/repo/#{deploy_folder}.git"
+  set :repository,  "file:///home/#{user}/repo/#{deploy_folder}.git"
+
+  set :branch, "master" #branch que sera copiado
+  set :deploy_to, "/home/#{user}/rails_projects/#{deploy_folder}"  #pasta para onde serao enviados os arquivos
+  
+end
+
+
+# set :build_nokogiri, "--with-xslt-dir=/home/storage/c/9a/91/boscolotshirt/local --with-xml2-include=/home/storage/c/9a/91/boscolotshirt/local/include/libxml2 --with-xml2-lib=/home/storage/c/9a/91/boscolotshirt/local/lib"
 
 # ==============================================================
 # ROLE's
 # ==============================================================
 
-server domain, :app, :web, :db, :primary => true
+task :production do
+  set :deploy_folder, "prod_" + application
+  set_folders
+  server domain, :app, :web, :db, :primary => true
+end
+
+task :staging do
+  set :deploy_folder, "dev_" + application
+  set_folders
+  server domain, :app, :web, :db, :primary => true
+end
+
 
 
 # ==============================================================
@@ -73,6 +91,7 @@ namespace :deploy do
       reset!(:current_path)
       reset!(:current_revision)
       reset!(:real_revision)
+      reset!(:current_release)
     end
     
   end
@@ -80,7 +99,7 @@ namespace :deploy do
   desc "copy database.yml into project"
   task :copy_database_config do
     # production_db_config = "/path_to_config/#{application}.yml"
-    run "cp /home/#{user}/rails_projects/#{application}/database.yml #{latest_release}/config/database.yml"
+    run "cp /home/#{user}/rails_projects/#{deploy_folder}/database.yml #{latest_release}/config/database.yml"
     puts "Replaced database.yml with live copy"
   end
   
