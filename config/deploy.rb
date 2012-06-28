@@ -30,7 +30,6 @@ task :set_folders do
   set :local_repository,  "ssh://#{user}@#{domain}/~/repo/#{deploy_folder}.git"
   set :repository,  "file:///home/#{user}/repo/#{deploy_folder}.git"
 
-  set :branch, "master" #branch que sera copiado
   set :deploy_to, "/home/#{user}/rails_projects/#{deploy_folder}"  #pasta para onde serao enviados os arquivos
   
 end
@@ -44,12 +43,16 @@ end
 
 task :production do
   set :deploy_folder, "prod_" + application
+  set :branch, "production" #branch que sera copiado
+  
   set_folders
   server domain, :app, :web, :db, :primary => true
 end
 
 task :staging do
   set :deploy_folder, "dev_" + application
+  set :branch, "master" #branch que sera copiado
+  
   set_folders
   server domain, :app, :web, :db, :primary => true
 end
