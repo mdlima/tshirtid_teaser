@@ -10,14 +10,20 @@ end
 
 describe "EmailSubscriptions" do
   describe "GET /email_subscriptions" do
-    it "works! (now write some real specs)" do
+    it "should redirect to /" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
       get email_subscriptions_path
-      response.status.should redirect_to root_path
+      response.should redirect_to root_path
     end
+    
   end
   
-  
+  describe "Signing up" do
+    it "should open the subscription page"
+    it "should alert of an invalid e-mail"
+    it "should subscribe the user to sign-up campaign"
+    it "should subscribe the user to buy-now campaign"
+  end
   
   
 end
