@@ -8,7 +8,7 @@ describe "Home Page" do
   
 end
 
-describe "EmailSubscriptions" do
+describe "Email Subscription Page" do
   describe "GET /email_subscriptions" do
     it "should redirect to /" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
@@ -18,12 +18,65 @@ describe "EmailSubscriptions" do
     
   end
   
-  describe "Signing up" do
-    it "should open the subscription page"
-    it "should alert of an invalid e-mail"
-    it "should subscribe the user to sign-up campaign"
-    it "should subscribe the user to buy-now campaign"
-  end
+  subject { page }
+
+  describe "signup page (home)" do
+    
+    before { visit root_path }
+
+    it { should have_selector('.buy-now-box') }
+    it { should have_selector('.sign-up-box') }
+    
+    let(:submit) { "OK" }
   
+    describe "Sign-up box" do
+      
+      it "should alert of an invalid e-mail" do
+
+        within '.sign-up-box' do
+          fill_in 'email_subscription_email', :with => 'invalid_email@'
+          expect { click_button submit }.not_to change(EmailSubscription, :count)
+        end
+        
+        should have_selector('div.alert.alert-info', :text => 'inválido')
+        
+      end
+      
+      it "should subscribe the user" do
+        within '.sign-up-box' do
+          fill_in 'email_subscription_email', :with => 'valid_email@email.com'
+          expect { click_button submit }.to change(EmailSubscription.where(:opt_in_campaign => "teaser-signup"), :count).by(1)
+        end
+        should have_selector('div.alert.alert-success', :text => 'sucesso')
+      end
+
+    end
+    
+    describe "Buy-now box" do
+    
+      it "should alert of an invalid e-mail" do
+      
+        # save_and_open_page
+
+        within '.buy-now-box' do
+          fill_in 'email_subscription_email', :with => 'invalid_email@'
+          expect { click_button submit }.not_to change(EmailSubscription, :count)
+        end
+      
+        should have_selector('div.alert.alert-info', :text => 'inválido')
+      
+      end
+    
+      it "should subscribe the user" do
+        within '.buy-now-box' do
+          fill_in 'email_subscription_email', :with => 'valid_email@email.com'
+          expect { click_button submit }.to change(EmailSubscription.where(:opt_in_campaign => "teaser-buynow"), :count).by(1)
+        end
+        should have_selector('div.alert.alert-success', :text => 'sucesso')
+      end
+    
+    end
+    
+  end
   
 end
