@@ -33,6 +33,9 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'spork'
