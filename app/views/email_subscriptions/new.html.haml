@@ -1,0 +1,58 @@
+.row
+	.span10.offset1.center-text
+		%p
+			A T-shirt ID nasceu para acabar com esse blá-blá-blá de que moda é (só) aquilo o que está nas passarelas e revistas.
+			%br/
+			Liberte-se das restrições de cores e estampas e crie a sua própria camiseta. Do seu jeito.
+			%br/
+			Tudo isso porque sabemos que uma boa camiseta é capaz de...
+		%br/
+.row
+	.span12.center-text
+		%ul.balloons
+			%li
+				%p Mudar o mundo.
+			%li
+				%p Compartilhar amor.
+			%li
+				%p Criar polêmica.
+			%li
+				%p Expor idéias.
+			%li
+				%p Causar na balada.
+			%li
+				%p Provocar sorrisos.
+.row
+	.span8.offset2.center-text
+		%br/
+		%p Estamos preparando algo especial para você, aguarde.
+		%br/
+.row
+	.span10.offset1
+		.row-fluid
+			.span6
+				= form_for(@email_subscription, :html => { :class => "well form-inline sign-up-box"}) do |f|
+					%p Me avise, quero ser o primeiro a saber das novidades.
+					.control-group
+						.controls
+							= f.email_field :email, :class => "input-medium focused", :placeholder => "Email", :autocapitalize => "off", :autocorrect => "off"
+							= f.hidden_field :opt_in_campaign, :value => "teaser-signup"
+							= f.submit "OK", :class => "btn btn-info"
+							%p.help-block
+								%small
+									* Você aceita receber nossos e-mails.
+									%br>/
+									Mandaremos novidades, mas nada de SPAM. Fique tranquilo, não vendemos e não compartilhamos e-mails.
+			.span6
+				= form_for(@email_subscription, :html => { :class => "well form-inline buy-now-box"}) do |f|
+					%p Não aguento esperar, quero fazer a minha agora mesmo!
+					.control-group
+						.controls
+							= f.text_field :email, :class => "input-medium focused", :placeholder => "Email"
+							= f.hidden_field :opt_in_campaign, :value => "teaser-buynow"
+							= f.submit "OK", :class => "btn btn-danger"
+							%p.help-block
+								%small
+									* Você aceita receber e-mails.
+									%br>/
+									Entraremos em contato com você para fazer a sua camiseta antes do lançamento oficial. Fique atento à sua caixa de e-mails.
